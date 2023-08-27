@@ -14,8 +14,8 @@ for t in range(3333):
         if i == 500:
             sleep(1)
             break
-        req = requests.get(f"https://t.me/{user}")
-        if req.text.find('If you have <strong>Telegram</strong>, you can contact <a class="tgme_username_link"') >= 0:
+        req = requests.get(f"https://t.me/{user}").text
+        if ('If you have <strong>Telegram</strong>, you can contact <a class="tgme_username_link"') in req:
             print('yes')
             sleep(50000)
         else:
