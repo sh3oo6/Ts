@@ -1,4 +1,4 @@
-
+import httpx
 from time import sleep; import requests
 from telethon.tl.functions.account import UpdateUsernameRequest
 from telethon import TelegramClient , functions
@@ -10,12 +10,12 @@ for t in range(3333):
     for t in range(3333):
         i += +1
         x += +1
-        sleep(0.1)
+        sleep(0.0001)
         if i == 270:
             sleep(2)
             break
-        req = requests.get(f"https://t.me/{user}")
-        if req.text.find('If you have <strong>Telegram</strong>, you can contact <a class="tgme_username_link"') >= 0:
+        req = httpx.get(f"https://t.me/{user}")
+        if ('If you have <strong>Telegram</strong>, you can contact <a class="tgme_username_link"') in req.text :
             print('yes')
             sleep(50000)
         else:
